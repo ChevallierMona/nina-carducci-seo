@@ -13,3 +13,6 @@ $(document).ready(function() {
         tagsPosition: 'top'
     });
 });
+$('#myAwesomeLightbox').on('hidden.bs.modal', function () {
+  document.activeElement.blur();
+});
