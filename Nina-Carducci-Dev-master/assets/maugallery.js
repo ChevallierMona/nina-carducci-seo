@@ -60,8 +60,11 @@
                 "IMG" === a.prop("tagName") && a.addClass("img-fluid");
             },
             openLightBox(t, e) {
-                a(`#${e}`).find(".lightboxImage").attr("src", t.attr("src")), a(`#${e}`).modal("show");
-            },
+    a(`#${e}`).find(".lightboxImage").attr("src", t.attr("src"));
+
+    const modal = new bootstrap.Modal(document.getElementById(e));
+    modal.show();
+},
             prevImage() {
                 console.log("PREV CLICK");
                 let t = null;
@@ -110,7 +113,7 @@
             },
             createLightBox(a, t, e) {
                 a.append(
-                    `<div class="modal fade" id="${t || "galleryLightbox"}" tabindex="-1" role="dialog" aria-hidden="true">\n                <div class="modal-dialog" role="document">\n                    <div class="modal-content">\n                        <div class="modal-body">\n                            ${e ? '<div class="mg-prev" style="cursor:pointer;position:absolute;top:50%;left:-15px;background:white;"><</div>' : '<span style="display:none;" />'}\n                            <img class="lightboxImage img-fluid" alt="Contenu de l'image affichée dans la modale au clique"/>\n                            ${e ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;}">></div>' : '<span style="display:none;" />'}\n                        </div>\n                    </div>\n                </div>\n            </div>`
+                    `<div class="modal fade" id="${t || "galleryLightbox"}" tabindex="-1" role="dialog" aria-hidden="true">\n                <div class="modal-dialog" role="document">\n                    <div class="modal-content">\n                        <div class="modal-body">\n                            ${e ? '<div class="mg-prev" style="cursor:pointer;position:absolute;top:50%;left:-15px;background:white;"><</div>' : '<span style="display:none;" />'}\n                            <img class="lightboxImage img-fluid" alt="Contenu de l'image affichée dans la modale au clique"/>\n                            ${e ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;">></div>' : '<span style="display:none;" />'}\n                        </div>\n                    </div>\n                </div>\n            </div>`
                 );
             },
             showItemTags(t, e, l) {
